@@ -5,7 +5,7 @@ import time
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.api_route("/", methods=["GET", "POST"])
 def index():
     data_dict = {}
     if request.method=="POST":
@@ -15,7 +15,7 @@ def index():
     else:
         return render_template("index.html", data=data_dict)
 
-@app.route("/<string:query>")
+@app.api_route("/<string:query>")
 def get_news(query):
     t1 = time.time()
     dict1 = {}
